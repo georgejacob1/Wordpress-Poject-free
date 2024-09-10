@@ -6,7 +6,7 @@ get_header();
 <section class="conten-wrapp blog-wrapp">
     <div class="margin">
 
-        <?php get_search_form(); ?>
+        <!-- <?php get_search_form(); ?> -->
         <?php if (have_posts()) : ?>
             <div class="blog-col1">
 

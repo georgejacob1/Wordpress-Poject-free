@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <?php define('TEMPLATE_URL', get_template_directory_uri() . '/'); ?>
-    
+
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+        <a href="<?php echo site_url('/'); ?>" class="navbar-brand ms-4 ms-lg-0">
             <h1 class="text-primary m-0"><img class="me-3" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-1.png" alt="Icon">Arkitektur</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -83,7 +83,7 @@
             </div> -->
             <?php wp_nav_menu(array('menu' => 'Header Menu', 'container' => '', 'menu_class' => 'navbar-nav ms-auto p-4 p-lg-0', 'fallback_cb' => false)); ?>
 
-            <a href="https://htmlcodex.com/architecture-html-template-pro" class="btn btn-primary py-2 px-4 d-none d-lg-block">Pro Version</a>
+            <!-- <a href="https://htmlcodex.com/architecture-html-template-pro" class="btn btn-primary py-2 px-4 d-none d-lg-block">Pro Version</a> -->
         </div>
     </nav>
     <!-- Navbar End -->
@@ -144,7 +144,7 @@
             <div class="container py-5">
                 <?php if (is_home()) { ?>
 
-                    <h1 class="display-1 text-white animated slideInDown">Blog</h1>
+                    <h1 class="display-1 text-white animated slideInDown">Service</h1>
 
                 <?php } elseif (is_search()) {  ?>
 
@@ -169,9 +169,8 @@
                     <h1 class="display-1 text-white animated slideInDown">
                         <?php
                         if (!empty($post->ID)) {
-                       
-                                the_title();
-                           
+
+                            the_title();
                         } else {
                             the_title();
                         }
@@ -181,9 +180,66 @@
                 <?php } ?>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb text-uppercase mb-0">
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-primary active" aria-current="page">404 Error</li>
+                        <?php global $post;
+
+                        $prev_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+
+                        if (is_home()) { ?>
+
+                            <li class="breadcrumb-item"> <a class="text-white" href="<?php echo site_url('/'); ?>"> Home </a></li>
+
+                            <li class="breadcrumb-item text-primary active"> service </li>
+
+                        <?php   } elseif (is_search()) {  ?>
+
+                            <li class="breadcrumb-item"> <a class="text-white" href="<?php echo site_url('/'); ?>"> Home </a> </li>
+
+                            <li class="breadcrumb-item text-primary active"> Search </li>
+
+                        <?php   } elseif (is_archive()) {  ?>
+
+                            <li class="breadcrumb-item"> <a class="text-white" href="<?php echo site_url('/'); ?>"> Home </a></li>
+
+                            <li class="breadcrumb-item"> <a class="text-white" href="<?php echo get_permalink(10); ?>">service</a> </li>
+
+                            <li class="breadcrumb-item text-primary active"><?php single_cat_title(); ?></li>
+
+                        <?php   } elseif (is_404()) { ?>
+
+                            <li class="breadcrumb-item"> <a class="text-white" href="<?php echo site_url('/'); ?>"> Home </a> </li>
+
+                            <li class="breadcrumb-item text-primary active"> 404</li>
+
+                        <?php   } elseif (is_single()) {  ?>
+
+                            <li class="breadcrumb-item"><a class="text-white" href="<?php echo site_url('/'); ?>"> Home </a></li>
+
+                            <li class="breadcrumb-item"> <a class="text-white" href="<?php echo get_permalink(10); ?>">service</a></li>
+
+                            <!-- <li class="breadcrumb-item">
+
+                                <?php $category = get_the_term_list($post->ID, 'category', '', ', ');
+
+                                $explode = explode(",", $category);
+
+                                if (!empty($explode)) {
+
+                                    echo $explode[0];
+                                }
+
+                                ?>
+
+                            </li> -->
+
+                            <li class="breadcrumb-item text-primary active"><?php the_title(); ?> </li>
+
+                        <?php   } else { ?>
+
+                            <li class="breadcrumb-item"><a class="text-white" href="<?php echo site_url('/'); ?>"> Home </a></li>
+                            <li class="breadcrumb-item text-primary active"><?php the_title(); ?> </li>
+
+                        <?php   } ?>
+
                     </ol>
                 </nav>
             </div>

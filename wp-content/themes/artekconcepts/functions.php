@@ -187,7 +187,7 @@ function my_login_logo_url()
 add_filter('login_headerurl', 'my_login_logo_url');
 function add_my_favicon()
 {
-  $favicon_path = get_template_directory_uri() . '/images/favicon.ico';
+  $favicon_path = get_template_directory_uri() . '/img/favicon.ico';
 
   echo '<link rel="shortcut icon" href="' . esc_url($favicon_path) . '" />';
 }
@@ -197,3 +197,15 @@ add_action('login_head', 'add_my_favicon'); //front end
 
 
 
+function change_admin_menu_name() {
+  global $menu;
+  
+  // Loop through the menu items and change the name of the specific one
+  foreach ($menu as $key => $item) {
+      // Check if the menu item's slug matches the one you want to change
+      if ($item[2] == 'edit.php') { // Replace 'edit.php' with your desired menu slug
+          $menu[$key][0] = 'Service'; // Change 'New Menu Name' to your desired name
+      }
+  }
+}
+add_action('admin_menu', 'change_admin_menu_name');
