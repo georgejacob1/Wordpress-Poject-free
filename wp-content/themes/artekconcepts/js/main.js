@@ -79,6 +79,28 @@
         dotsData: true,
     });
 
-    
+  jQuery('.Values-carousel').owlCarousel({
+        loop: true,
+        // margin: 20,
+        items: 3,
+        dots: false,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 3,
+                nav: true
+
+            },
+            600: {
+                items: 3,
+                nav: true
+            },
+            1000: {
+                items: 3,
+                nav: true,
+
+            }
+        }
+    });
 })(jQuery);
 

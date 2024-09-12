@@ -331,10 +331,11 @@ h6,
 .service-item .service-text {
     background: var(--light);
     transition: .5s;
+    border-radius: 25px;
 }
 
 .service-item:hover .service-text {
-    background: rgba(0, 0, 0, .7);
+    background: #043347d3;
 }
 
 .service-item * {
@@ -557,4 +558,14 @@ h6,
 
 .footer .copyright a:hover {
     color: var(--primary);
+}
+
+/* exta */
+.img-interior {
+    height: 600px;
+    width: 100%;
+    border-radius: 0% 10%;
+}
+.img-interior.left {
+    border-radius: 10% 0%;
 }
