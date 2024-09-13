@@ -5,15 +5,11 @@ get_header();
 
 
 ?>
-
-<section class="conten-wrapp blogin-wrapp common-style">
-    <div class="margin">
-
-        <div class="blogin-col1">
-
-            <div class="blogin-row2">
-                <h2><?php echo get_the_date('d / m / Y', $post->ID); ?></h2>
-                <h3><?php the_title(); ?></h3>
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col">
+            <h3><?php the_title(); ?></h3>
                 <?php while (have_posts()) : the_post(); ?>
 
                     <?php the_content(); ?>
@@ -21,28 +17,11 @@ get_header();
                 <?php endwhile; ?>
 
                 <?php wp_reset_query(); ?>
-
-
-
-                        <a href="<?php echo get_permalink(8); ?>" class="blogin-btn1">Back to Blog</a>
-
-                   
-
-                <?php wp_reset_query(); ?>
-
             </div>
         </div>
+        <div class="text-center"><a class="btn btn-primary py-3 px-5 mt-5" href="<?php echo get_permalink(8); ?>">Back to Services</a></div>
     </div>
-    <!--conten-texture-grey-square-shape-->
-    <div class="conten-texture-grey-square-shape1">
-        <img loading="lazy" src="<?php echo TEMPLATE_URL; ?>images/about-texture-grey-square-shape1.svg" alt="conten texture grey square shape1">
-    </div>
-    <div class="conten-texture-grey-square-shape2">
-        <img loading="lazy" src="<?php echo TEMPLATE_URL; ?>images/conten-shape1.svg" alt="conten texture grey square shape1">
-    </div>
-</section>
-
-
+</div>
 
 <?php
 

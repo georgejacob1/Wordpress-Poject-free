@@ -3,59 +3,76 @@
 get_header();
 
 ?>
-<section class="conten-wrapp blog-wrapp">
-    <div class="margin">
-
-        <!-- <?php get_search_form(); ?> -->
-        <?php if (have_posts()) : ?>
-            <div class="blog-col1">
-
-                <?php
-                while (have_posts()) : the_post();
-                ?>
-                    <div class="blog-col2">
-                        
-                        <div class="blog-row2">
-                            <h2><?php echo get_the_date('d / m / Y', $post->ID); ?></h2>
-                            <h3><?php the_title(); ?></h3>
-                            <p><?php the_content(); ?></p>
-                            <!-- <a href="<?php echo get_permalink($post->ID); ?>" class="blog-btn1">READ MORE</a> -->
-                        </div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h4 class="section-title">Our Services</h4>
+            <h1 class="display-5 mb-4">We Focused On Modern Architecture And Interior Design</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item d-flex position-relative text-center h-100">
+                    <div class="service-text p-5">
+                        <img class="mb-4" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-5.png" alt="Icon">
+                        <h3 class="mb-3">Architecture</h3>
+                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
-                <?php endwhile; ?>
-
-            </div>
-
-
-            <div class="paiger-wrapp">
-                <div class="paiger-col1">
-                    <?php
-
-                    the_posts_pagination(array(
-
-                        'prev_text' => '<span class="paiger-btn1 ">' . __('Back') . '</span>',
-
-                        'next_text' => '<span class="paiger-btn2 ">' . __('next') . '</span>',
-
-                        'before_page_number' => '',
-
-                        'screen_reader_text' => '&nbsp;',
-
-                    )); ?>
-
                 </div>
             </div>
-        <?php
-
-        else :
-
-            echo '<h2>No blog posts found.</h2>';
-
-        endif; ?>
-
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item d-flex position-relative text-center h-100">
+                    <div class="service-text p-5">
+                        <img class="mb-4" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-6.png" alt="Icon">
+                        <h3 class="mb-3">3D Animation</h3>
+                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item d-flex position-relative text-center h-100">
+                    <div class="service-text p-5">
+                        <img class="mb-4" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-7.png" alt="Icon">
+                        <h3 class="mb-3">House Planning</h3>
+                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item d-flex position-relative text-center h-100">
+                    <div class="service-text p-5">
+                        <img class="mb-4" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-8.png" alt="Icon">
+                        <h3 class="mb-3">Interior Design</h3>
+                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item d-flex position-relative text-center h-100">
+                    <div class="service-text p-5">
+                        <img class="mb-4" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-9.png" alt="Icon">
+                        <h3 class="mb-3">Renovation</h3>
+                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item d-flex position-relative text-center h-100">
+                    <div class="service-text p-5">
+                        <img class="mb-4" src="<?php echo TEMPLATE_URL; ?>img/icons/icon-10.png" alt="Icon">
+                        <h3 class="mb-3">Construction</h3>
+                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-</section>
+</div>
 
 <?php
 
